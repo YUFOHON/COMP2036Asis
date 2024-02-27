@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Bruce - Computer Science Student</title>
+  <style>
+.buttons {
+  
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 80px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+}
+
+.carousel-button {
+  padding: 5 10px;
+  background-color: orange;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  
+}
+    body {
+      background-color: #f1f1f1;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .carousel-container {
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .carousel-wrapper {
+      display: flex;
+      flex-wrap: nowrap;
+      transition: transform 0.5s ease;
+    }
+
+    .carousel-wrapper>section {
+      flex-shrink: 0;
+      width: 100%;
+    }
+
+    nav {
+      background-color: #f1f1f1;
+      padding: 10px;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul li {
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      padding: 5px;
+    }
+
+    nav ul li a:hover {
+      background-color: orange;
+      text-decoration: none;
+    }
+
+    /* Additional CSS Styles */
+    button {
+      padding: 10px 20px;
+      background-color: orange;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ff8c00;
+    }
+
+    /* #header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    } */
+
+    #header h1 {
+      margin: 0;
+    }
+
+    #main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #f2f2f2;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      margin-top: 30px;
+    }
+
+    ul {
+      list-style-type: square;
+      padding-left: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th,
+    td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 20px;
+    }
+
+
+    #typewriter {
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    @keyframes blink {
+      0% {
+        border-right-color: orange;
+      }
+
+      50% {
+        border-right-color: transparent;
+      }
+
+      100% {
+        border-right-color: orange;
+      }
+    }
+
+    #typewriter {
+      animation: blink 1s infinite;
+      border-right: 0.15em solid orange;
+    }
+
+    .carousel-container {
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .carousel-container>section {
+      display: flex;
+      flex-wrap: nowrap;
+    }
+    #about {
+
+  padding: 20px;
+  border-radius: 5px;
+}
+
+#about h2 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+#about p {
+  color: #666;
+  line-height: 1.6;
+  font-size: 16px;
+}
+#skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+.card {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#skills h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 40%;
+  margin-left: 40%;
+  margin-top: 40%;
+}
+
+.card h3 {
+  color: #666;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.card li {
+  color: #666;
+  line-height: 1.6;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+#projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+.card {
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card a {
+  display: block;
+  text-decoration: none;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.project-info {
+  padding: 20px;
+}
+
+.project-info h3 {
+  color: #333;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.project-info p {
+  color: #666;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+#projects h2 {
+  margin-bottom: 40%;
+  margin-left: 40%;
+  margin-top: 50%;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="buttons">             
+            <!-- Previous button -->
+             <button class="carousel-button" onclick="slidePrev()">&larr;</button>
+
+             <!-- Next button -->
+             <button class="carousel-button" onclick="slideNext()">&rarr;</button></div>
+
+  <nav id="navgation">
+    <ul>
+      <li><a href="#">Wellcome</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Skills</a></li>
+      <li><a href="#">Education</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">My School</a></li>
+    </ul>
+  </nav>
+
+
+
+  <main id="main">
+    <div class="carousel-container" >
+      <div class="carousel-wrapper" >
+        <section  style="max-height: 500px;">
+          <header id="header" style="display: flex; align-items: center; min-height: 300px;">
+            <div id="information" style="display: flex; flex-direction: column; align-items: center; width: 500px;">
+              <h1>Hi, I am</h1>
+              <h2 id="typewriter" style="display: inline-block;color: orange;">&nbsp;&nbsp;</h2>
+              <p>Computer Science Student</p>
+            </div>
+            <div style="margin-left: auto;">
+              <img src="images/profile.jpeg" alt="Profile Picture" style="border-radius: 50%; width: 70%; height: auto;">
+            </div>
+          </header>
+        </section>
+        <section>
+          <div id="about">
+            <h2>About Me</h2>
+            <p>
+              Hi, I'm Bruce, a passionate computer science student with a keen interest in software development and
+              artificial intelligence.
+              I love solving complex problems and turning ideas into functional and efficient code.
+            </p>
+            <img src="/images/png-transparent-programming-language-computer-programming-logo-computer-science-computer-code-text-computer-logo.png" alt="">
+          </div>
+        </section>
+
+        <section>
+          <div id="skills">
+            <h2>Skills</h2>
+            <div class="card">
+              <h3>Programming languages</h3>
+              <ul>
+                <li>Python</li>
+                <li>Java</li>
+                <li>C++</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Web development</h3>
+              <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Data analysis</h3>
+              <ul>
+                <li>SQL</li>
+                <li>R</li>
+                <li>MATLAB</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Machine learning</h3>
+              <ul>
+                <li>TensorFlow</li>
+                <li>scikit-learn</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div id="education">
+            <h2>Education</h2>
+            <table>
+              <tr>
+                <th>Year</th>
+                <th>Degree</th>
+                <th>Institution</th>
+                <th>Link</th>
+              </tr>
+              <tr>
+                <td>2022 - Present</td>
+                <td>Bachelor of Science in Computer Science</td>
+                <td><s>University of HKBU</s></td>
+                <td><a href="https://example.com" target="_blank"><button> Visit </button></a></td>
+
+              </tr>
+              <tr>
+                <td>2018 - 2022</td>
+                <td><u>High School Diploma<u /></td>
+                <td>ABC High School</td>
+                <td><a href="https://example.com" target="_blank"><button> Visit </button></a></td>
+              </tr>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <div id="contact">
+            <h2>Contact</h2>
+            <p>
+              Feel free to get in touch with me. You can reach me via email at
+              <a href="mailto:bruce@example.com">bruce@example.com</a>.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <div id="projects">
+            <h2>Projects</h2>
+            <div class="card">
+              <a href="https://github.com/bruce/project1" target="_blank">
+                <img src="https://www.chronodat.com/img/taskpro/1.jpg" alt="Project 1 Thumbnail">
+                <div class="project-info">
+                  <h3>Project 1</h3>
+                  <p>A web application for managing tasks and deadlines.</p>
+                </div>
+              </a>
+            </div>
+            <div class="card">
+              <a href="https://github.com/bruce/project2" target="_blank">
+                <img src="data:image/jpeg;base64,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" alt="Project 2 Thumbnail">
+                <div class="project-info">
+                  <h3>Project 2</h3>
+                  <p>An image recognition system using deep learning.</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div id="school">
+            <h2>My School</h2>
+            <iframe width="550" height="317" src="https://www.youtube.com/embed/IXVZjK5_Dv8"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+        </section>
+
+      </div>
+
+    </div>
+  </main>
+  <script>
+    
+      // Get the <ul> element
+  var ulElement = document.querySelector("#navgation ul");
+
+// Get all the <li> elements within the <ul>
+var liElements = ulElement.getElementsByTagName("li");
+liElements[0].style.backgroundColor = "orange";
+
+    const typewriterText = "Bruce"; // The text to animate
+
+    function typeWriter(element, text, delay) {
+      let i = 0;
+      const speed = 500; // Delay between each character (in milliseconds)
+
+      function type() {
+        if (i < text.length) {
+          element.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(type, speed);
+        } else {
+          // Animation completed, clear the text and start again
+          element.innerHTML = '&nbsp;&nbsp;';
+          i = 0;
+          setTimeout(type, delay);
+        }
+      }
+
+      setTimeout(type, delay);
+    }
+
+    const typewriterElement = document.getElementById("typewriter");
+    typeWriter(typewriterElement, typewriterText, 1000); // Delay before the typing animation starts (in milliseconds)
+
+
+    const carouselWrapper = document.querySelector('.carousel-wrapper');
+    const sections = document.querySelectorAll('.carousel-wrapper>section');
+
+    let currentPosition = 0;
+    const sectionWidth = sections[0].offsetWidth;
+
+    function showSection(index) {
+      if (index < 0 || index >= sections.length) {
+        return;
+      }
+
+    
+
+      currentPosition = -index * sectionWidth;
+      carouselWrapper.style.transform = `translateX(${currentPosition}px)`;
+
+      // Adjust the index for seamless sliding
+      const adjustedIndex = (index + sections.length) % sections.length;
+      carouselWrapper.style.transform = `translateX(${-adjustedIndex * sectionWidth}px)`;
+    }
+
+    function slideNext() {
+      
+      index = currentPosition / -sectionWidth + 1;
+      if (index < 0 || index >= sections.length) return;
+      liElements[index-1].style.backgroundColor = "initial";
+      liElements[index].style.backgroundColor = "orange";
+
+      showSection(index);
+    }
+
+    function slidePrev() {
+      index = currentPosition / -sectionWidth - 1;
+      if (index < 0 || index >= sections.length) return;
+      liElements[index+1].style.backgroundColor = "initial";
+      liElements[index].style.backgroundColor = "orange";
+      showSection(index);
+    }
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'ArrowRight') {
+        slideNext();
+      } else if (event.key === 'ArrowLeft') {
+        slidePrev();
+      }
+    });
+  </script>
+</body>
+
+</html>
